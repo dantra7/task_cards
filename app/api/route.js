@@ -32,7 +32,7 @@ export async function POST(request) {
     const base = new Airtable({ apiKey: process.env.AIRTABLE_TOKEN }).base(process.env.AIRTABLE_BASE_ID);
     for (const response of responses) {
       // Modify this logic based on how you want to save data in Airtable
-      await base('One').update([
+      await base('WorkMenu').update([
         {
           id: response.questionId,
           fields: {
