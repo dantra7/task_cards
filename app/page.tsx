@@ -1,11 +1,33 @@
-'use client'
+"use client";
+// pages/index.js
 
-export default function Home() {
+import { useEffect, useState } from 'react';
+import { fetchAirtableData } from '/app/utils/airtable';
+import Card from '/app/components/card';
+
+const Home = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from Airtable when the component mounts
+    const fetchData = async () => {
+      const airtableData = await fetchAirtableData();
+      setData(airtableData);
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        Welcome to the NextApp for LLUF Work Logs!
+    <div>
+      <h1>Records from Airtable</h1>
+      <div className="card-container">
+        {data.map((record) => (
+          <Card key={record.id} record={record.fields} />
+        ))}
       </div>
-    </main>
-  )
-}
+    </div>
+  );
+};
+
+export default Home;
