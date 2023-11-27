@@ -1,10 +1,7 @@
-// app/api/route.js
-
 import { NextResponse } from 'next/server';
-//import { fetchAirtableData } from '../utils/airtable'; // Adjust the path accordingly
 import Airtable from 'airtable';
 
-const fetchAirtableData = async () => {
+export const fetchAirtableData = async () => {
     const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE_ID);
     const records = await base('WorkMenu').select({}).all();
     const processedData = records.map((record) => {

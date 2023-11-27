@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import fetchAirtableData from '../utils/airtable';
+import fetchAirtableData from '../api/route';
 
 const Card = ({ record }) => {
   return (

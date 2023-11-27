@@ -1,8 +1,6 @@
-// app/pages/index.tsx
-
 "use client";
 import { useEffect, useState } from 'react';
-import { fetchAirtableData } from 'app/utils/airtable';
+import { fetchAirtableData } from 'app/api/route';
 import Card from 'app/components/card';
 
 const Home = () => {

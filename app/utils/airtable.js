@@ -1,5 +1,3 @@
-// utils/airtable.js
-
 /*import Airtable from 'airtable';
 
 const fetchAirtableData = async () => {
