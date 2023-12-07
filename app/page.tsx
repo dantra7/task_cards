@@ -19,7 +19,7 @@ const Home = () => {
 
         fetchData();
     }, []);
-
+ 
     return (
         <div>
             <h1>Records from Airtable</h1>
